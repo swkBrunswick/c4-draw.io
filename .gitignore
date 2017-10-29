@@ -1,3 +1,6 @@
+# Ignore update.js - only servd here because we have a http-server running...
+update.js
+
 .idea/
 *.iml
 *.sublime-project
