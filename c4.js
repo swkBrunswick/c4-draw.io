@@ -151,7 +151,7 @@ Draw.loadPlugin(function (ui) {
         var head = new mxCell(
             ''
             , new mxGeometry(40, 0, 80, 80)
-            , 'rounded=1;whiteSpace=wrap;html=1;aspect=fixed;labelBackgroundColor=none;fillColor=#08427b;fontSize=14px;font-family: \'Open Sans\',sans-serif;font-weight:bold;fontColor=#ffffff;align=center;strokeColor=#3c7fc0;ellipse;'
+            , 'rounded=1;whiteSpace=wrap;html=1;aspect=fixed;labelBackgroundColor=none;fillColor=#08427b;fontSize=14;font-family: \'Open Sans\',sans-serif;font-weight:bold;fontColor=#ffffff;align=center;strokeColor=#3c7fc0;ellipse;'
         );
         head.setParent(group);
         head.setVertex(true);
@@ -169,7 +169,7 @@ Draw.loadPlugin(function (ui) {
     C4SoftwareSystem.prototype.create = function () {
         var c4SoftwareSystem = new mxCell(
             ''
-            , new mxGeometry(0, 70, 160, 110), 'rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#1168bd;fontSize=14px;font-family: \'Open Sans\',sans-serif;font-weight:bold;fontColor=#ffffff;align=center;arcSize=7;strokeColor=#3c7fc0;'
+            , new mxGeometry(0, 70, 160, 110), 'rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#1168bd;fontSize=14;font-family: \'Open Sans\',sans-serif;font-weight:bold;fontColor=#ffffff;align=center;arcSize=7;strokeColor=#3c7fc0;'
         );
         c4SoftwareSystem.setVertex(true);
         c4SoftwareSystem.setValue(mxUtils.createXmlDocument().createElement('object'));
@@ -193,7 +193,7 @@ Draw.loadPlugin(function (ui) {
         var c4Container = new mxCell(
             ''
             , new mxGeometry(0, 70, 160, 110)
-            , 'rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#438dd5;fontSize=14px;font-family: \'Open Sans\',sans-serif;font-weight:bold;fontColor=#ffffff;align=center;arcSize=6;strokeColor=#3c7fc0;'
+            , 'rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#438dd5;fontSize=14;font-family: \'Open Sans\',sans-serif;font-weight:bold;fontColor=#ffffff;align=center;arcSize=6;strokeColor=#3c7fc0;'
         );
         c4Container.setVertex(true);
         c4Container.setValue(mxUtils.createXmlDocument().createElement('object'));
@@ -218,7 +218,7 @@ Draw.loadPlugin(function (ui) {
         var c4Component = new mxCell(
             ''
             , new mxGeometry(0, 70, 160, 110)
-            , 'rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#dae8fc;fontSize=14px;font-family: \'Open Sans\',sans-serif;font-weight:bold;fontColor=#ffffff;align=center;arcSize=7;strokeColor=#3c7fc0;'
+            , 'rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#dae8fc;fontSize=14;font-family: \'Open Sans\',sans-serif;font-weight:bold;fontColor=#ffffff;align=center;arcSize=7;strokeColor=#3c7fc0;'
         );
         c4Component.setVertex(true);
         c4Component.setValue(mxUtils.createXmlDocument().createElement('object'));
@@ -243,7 +243,7 @@ Draw.loadPlugin(function (ui) {
         var c4ExecutionEnvironment = new mxCell(
             ''
             , new mxGeometry(0, 70, 200, 170)
-            , 'rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#ffffff;fontSize=14px;font-family: \'Open Sans\',sans-serif;font-weight:bold;fontColor=#ffffff;align=left;arcSize=3;strokeColor=#000000;verticalAlign=bottom;'
+            , 'rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#ffffff;fontSize=14;font-family: \'Open Sans\',sans-serif;font-weight:bold;fontColor=#ffffff;align=left;arcSize=3;strokeColor=#000000;verticalAlign=bottom;'
         );
         c4ExecutionEnvironment.setVertex(true);
         c4ExecutionEnvironment.setValue(mxUtils.createXmlDocument().createElement('object'));
@@ -267,7 +267,7 @@ Draw.loadPlugin(function (ui) {
         var c4DeploymentNode = new mxCell(
             ''
             , new mxGeometry(0, 70, 240, 230)
-            , 'rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#ffffff;fontSize=14px;font-family: \'Open Sans\',sans-serif;font-weight:bold;fontColor=#ffffff;align=left;arcSize=3;strokeColor=#000000;verticalAlign=bottom;'
+            , 'rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#ffffff;fontSize=14;font-family: \'Open Sans\',sans-serif;font-weight:bold;fontColor=#ffffff;align=left;arcSize=3;strokeColor=#000000;verticalAlign=bottom;'
         );
         c4DeploymentNode.setVertex(true);
         c4DeploymentNode.setValue(mxUtils.createXmlDocument().createElement('object'));
@@ -292,7 +292,7 @@ Draw.loadPlugin(function (ui) {
         var c4Database = new mxCell(
             ''
             , new mxGeometry(0, 70, 160, 140)
-            , 'shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;rounded=0;labelBackgroundColor=none;fontSize=14px;font-family: \'Open Sans\',sans-serif;font-weight:bold;fillColor=#dae8fc;fontSize=14px;fontColor=#ffffff;align=center;strokeColor=#3c7fc0;'
+            , 'shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;rounded=0;labelBackgroundColor=none;fontSize=14;font-family: \'Open Sans\',sans-serif;font-weight:bold;fillColor=#dae8fc;fontSize=14;fontColor=#ffffff;align=center;strokeColor=#3c7fc0;'
         );
         c4Database.setVertex(true);
         c4Database.setValue(mxUtils.createXmlDocument().createElement('object'));
