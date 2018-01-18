@@ -27,6 +27,7 @@ Quick Start
 3.  Open the plugin dialog: kbd:[Extras] -> kbd:[Plugins]
 4.  Open the add plugin dialog with an click: kbd:[Add]
 5.  Put in the field kbd:[Enter Value (URL):] the link to the plugin: kbd:[https://tobiashochguertel.github.io/c4-draw.io/c4.js]
+5.  Put in the field kbd:[Enter Value (URL):] the link to the plugin: kbd:[https://swkbrunswick.github.io/c4-draw.io/c4.js]
 6.  Click on kbd:[Apply]
 7.  _Reload the page!_ to see the C4 Notation Shapes in the shape panel (_figure 1_).
 
@@ -119,3 +120,8 @@ Functions Workflow Designer], which has inspired me to done this plugin, and wha
 * C4Model Auhtor: https://twitter.com/simonbrown[Simon Brown], thanks for let me know that this us useful and thanks for  sharing your knowledge about software architecture.
 * https://www.draw.io/[draw.io], to provide draw.io as open source _software system_.
 
+[[dev-links]]
+Development Links
+~~~~~~~~~~~~~~~~~
+
+- https://desk.draw.io/support/solutions/articles/16000042546-what-url-parameters-are-supported-[What URL parameters are supported by draw.io?]
