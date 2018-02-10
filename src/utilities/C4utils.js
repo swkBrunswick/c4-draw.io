@@ -1,5 +1,9 @@
 export class C4utils {
 
+    static createMxGeometry(dimension) {
+        return new mxGeometry(dimension.x, dimension.y, dimension.width, dimension.height);
+    }
+
     static isC4(cell) {
         return (cell && cell.hasOwnProperty('c4') && (cell.c4 !== null));
     }

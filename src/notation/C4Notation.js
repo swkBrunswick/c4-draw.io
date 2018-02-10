@@ -1,3 +1,5 @@
+import {C4utils} from "../utilities/C4utils";
+
 export class C4Notation {
     _dimension = {};
     _mxcell;
@@ -48,7 +50,7 @@ export class C4Notation {
     }
 
     init() {
-        this._mxcell = new mxCell('', C4Notation.createMxGeometry(this.dimension), this.style);
+        this._mxcell = new mxCell('', C4utils.createMxGeometry(this.dimension), this.style);
         this._mxcell.setVertex(true);
         this._mxcell.setValue(mxUtils.createXmlDocument().createElement('object'));
         this._mxcell.setAttribute('label', this._label);
@@ -64,7 +66,4 @@ export class C4Notation {
         this._mxcell.getGeometry().setRect(this.dimension.x, this.dimension.y, this.dimension.width, this.dimension.height);
     }
 
-    static createMxGeometry(dimension) {
-        return new mxGeometry(dimension.x, dimension.y, dimension.width, dimension.height);
-    }
 }
