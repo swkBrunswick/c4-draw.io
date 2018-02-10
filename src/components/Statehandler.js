@@ -3,9 +3,11 @@ import {C4utils} from "../utilities/c4utils";
 export class C4statehandler extends mxVertexHandler {
 
     custom;
+    ui;
 
-    constructor(state) {
+    constructor(ui, state) {
         super(state);
+        this.ui = ui;
     }
 
     init() {
@@ -25,13 +27,13 @@ export class C4statehandler extends mxVertexHandler {
                 if (isC4Person) {
                     let cell = this.state.cell.getChildAt(0);
                     if (cell !== null) {
-                        let dlg = new EditDataDialog(ui, cell);
-                        ui.showDialog(dlg.container, 320, 320, true, false);
+                        let dlg = new EditDataDialog(this.ui, cell);
+                        this.ui.showDialog(dlg.container, 320, 320, true, false);
                         dlg.init();
                     }
                 }
                 if (!isC4Person) {
-                    ui.actions.get('editData').funct();
+                    this.ui.actions.get('editData').funct();
                 }
                 mxEvent.consume(evt);
             })
