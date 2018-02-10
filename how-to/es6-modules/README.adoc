@@ -1,0 +1,133 @@
+# ES6 Modules:
+
+## Part 1 - modules
+
+In this example, we basically make two copies of the module: one when we export it, and one when we require it.
+
+Moreover, the copy in main.js is now disconnected from the original module. That’s why even when we increment our counter it still returns `1` — because the `counter` variable that we imported is a _disconnected copy of the `counter` variable_ from the module.
+
+.counter1/lib/counter.js
+[source,javascript]
+----
+include::./part 1 - modules/counter1/lib/counter.js[lines=2..17]
+----
+
+.counter1/main.js
+[source,javascript]
+----
+include::./part 1 - modules/counter1/main.js[lines=2..17]
+----
+
+So, incrementing the counter will increment it in the module, but won’t increment your copied version. The only way to modify the copied version of the counter variable is to do so manually:
+
+.counter2/main.js
+[source,javascript]
+----
+include::./part 1 - modules/counter2/main.js[]
+----
+
+On the other hand, ES6 creates a live read-only view of the modules we import:
+
+.counter3/main.js
+[source,javascript]
+----
+include::./part 1 - modules/counter3/main.js[]
+----
+
+
+## Part 2 - module bundling
+
+Let’s say we have a utils.js file with the functions below, each of which we export using ES6 syntax:
+
+.utilis.js
+[source,javascript]
+----
+include::./part 2 - module bundling/utils.js[]
+----
+
+Next, let’s say we don’t know what utils functions we want to use in our program, so we go ahead and import all of the modules in `main.js` like so:
+
+.main.js
+[source,javascript]
+----
+include::./part 2 - module bundling/main1.js[lines=1..2]
+----
+
+And then we later end up only using the each function:
+
+.main.js
+[source,javascript]
+----
+include::./part 2 - module bundling/main1.js[lines=1..5]
+----
+
+The “tree shaken” version of our `main.js` file would look like this once the modules have been loaded:
+
+.treeshake.js
+[source,javascript]
+----
+include::./part 2 - module bundling/main1-treeshake.js[]
+----
+
+Notice how the only exports included are the ones we use: `each`.
+
+Meanwhile, if we decide to use the `filter` function instead of the `each` function, we wind up looking at something like this:
+
+.main2.js
+[source,javascript]
+----
+include::./part 2 - module bundling/main2.js[]
+----
+
+The tree shaken version looks like:
+
+.main2-treeshake.js
+[source,javascript]
+----
+include::./part 2 - module bundling/main2-treeshake.js[]
+----
+
+Notice how this time both `each` and `filter` are included. This is because `filter` is defined to use `each`, so we need both _exports_ for the module to work.
+
+I challenge you to play around and explore tree shaking in Rollup.js’s http://rollupjs.org/[live demo and editor].
+
+### Building ES6 modules
+
+Ok, so we know that ES6 modules are loaded differently than other module formats, but we still haven’t talked about the build step for when you’re using ES6 modules.
+
+Unfortunately, ES6 modules still require some extra work, since there isn’t a native implementation for how browsers load ES6 modules just yet.
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import[JavaScript Reference - Statements - import]
+
+### Loading ES6 modules
+
+*The question is, when will ES6 modules run in the browser without all this overhead?*
+
+ECMAScript currently has a specification for a solution called the https://github.com/ModuleLoader/es6-module-loader[ECMAScript 6 module loader API]. In short, this is a programmatic, Promise-based API that is supposed to dynamically load your modules and cache them so that subsequent imports do not reload a new version of the module.
+
+It’ll look something like this:
+
+.myModule.js
+[source,javascript]
+----
+include::./part 3 - loading es6 modules/myModule.js[]
+----
+
+.main.js
+[source,javascript]
+----
+include::./part 3 - loading es6 modules/main.js[]
+----
+
+Alternately, you could also define modules by specifying `type=module` directly in the script tag, like so:
+
+.myModule-as-scripttag.html
+[source,html]
+----
+include::./part 3 - loading es6 modules/myModule-as-scripttag.html[lines=6..11]
+----
+
+If you haven’t checked out the repo for the module loader API polyfill yet, I strongly encourage you to at least https://github.com/ModuleLoader/es6-module-loader[take a peek].
+
+Moreover, if you want to test-drive this approach, check out https://github.com/systemjs/systemjs[SystemJS], which is built on top of the https://github.com/ModuleLoader/es6-module-loader[ES6 Module Loader polyfill] . SystemJS dynamically loads any module format (ES6 modules, AMD, CommonJS and/or global scripts) in the browser and in Node. It keeps track of all loaded modules in a “module registry” to avoid re-loading modules that were previously loaded. Not to mention that it also automatically transpiles ES6 modules (if you simply set an option) and has the ability to load any module type from any other type! Pretty neat.
+
