@@ -5,7 +5,7 @@
  *
  * https://raw.githubusercontent.com/tobiashochguertel/draw-io/master/C4-drawIO.xml
  */
-import {C4utils} from "./utilities/c4utils";
+import {C4utils} from "./utilities/C4utils";
 import {Statehandler} from "./components/Statehandler";
 import {NotationEditor} from "./components/NotationEditor";
 import {Sidebar} from "./components/Sidebar";
