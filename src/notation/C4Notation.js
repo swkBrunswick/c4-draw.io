@@ -1,6 +1,7 @@
 export class C4Notation {
     _dimension = {};
     _mxcell;
+    _label;
     _style;
 
     get dimension() {
@@ -31,21 +32,26 @@ export class C4Notation {
         this._mxcell = value;
     }
 
-    constructor(dimension, style) {
+    get label() {
+        return this._label;
+    }
+
+    set label(value) {
+        this._label = value;
+    }
+
+    constructor(dimension, style, label) {
         this._dimension = dimension;
         this._style = style;
+        this._label = label;
+        this.init();
+    }
 
-        this._mxcell = new mxCell(
-            ''
-            , C4Notation.createMxGeometry(this.dimension)
-            , this.style
-        );
+    init() {
+        this._mxcell = new mxCell('', C4Notation.createMxGeometry(this.dimension), this.style);
         this._mxcell.setVertex(true);
         this._mxcell.setValue(mxUtils.createXmlDocument().createElement('object'));
-        this._mxcell.setAttribute(
-            'label'
-            , '<span>name</span><div>[Component:&nbsp;<span>technology</span><span>]</span></div><div><br></div><div>Beschreibung</div>'
-        );
+        this._mxcell.setAttribute('label', this._label);
         this._mxcell.setAttribute('placeholders', '1');
         this._mxcell.setAttribute('c4Name', 'name');
         this._mxcell.setAttribute('c4Type', 'Component');
