@@ -1,4 +1,7 @@
 export class C4Component {
+    constructor() {
+
+    }
 
     create() {
         let c4Component = new mxCell(

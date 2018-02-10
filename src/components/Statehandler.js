@@ -1,9 +1,7 @@
 import {C4utils} from "../utilities/c4utils";
 
-export class C4statehandler extends mxVertexHandler {
-
+export class Statehandler extends mxVertexHandler {
     custom;
-    ui;
 
     constructor(ui, state) {
         super(state);

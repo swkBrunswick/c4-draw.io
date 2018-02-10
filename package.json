@@ -55,7 +55,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "transpile2": "browserify src/c4.js -o dist/bundle.js -t [ babelify --presets [ env ] ]",
-    "transpile3": "browserify -d src/c4.js -o dist/bundle.js -t [ babelify --plugins transform-class-properties --presets env ]"
+    "transpile3": "browserify -d src/c4.js -o dist/bundle.js -t [ babelify --presets env --plugins transform-class-properties ]",
+    "transpile4": "browserify -d src/c4.js -o dist/bundle.js -t [ babelify --presets env ]"
   },
   "repository": {
     "type": "git",
