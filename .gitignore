@@ -1,4 +1,5 @@
 distribution/
+node_modules/
 
 .idea/
 *.iml
