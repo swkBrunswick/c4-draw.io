@@ -19,7 +19,7 @@ export class Sidebar {
                         let cell = verticies[i].prototype.create();
                         content.appendChild(ui.sidebar.createVertexTemplateFromCells([cell], cell.geometry.width, cell.geometry.height, cell.label));
                     }*/
-            let c4ComponentVerticy = c4Component.create();
+            let c4ComponentVerticy = c4Component.getMxCell();
             content.appendChild(
                 ui.sidebar.createVertexTemplateFromCells(
                     [c4ComponentVerticy],

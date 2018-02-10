@@ -12,7 +12,7 @@ export class C4Notation {
             console.error("can't set dimension. value is not of type object.", value);
         }
         this._dimension = value;
-        this.updateDimension();
+        // this.updateDimension();
     }
 
     get style() {
@@ -34,17 +34,11 @@ export class C4Notation {
     constructor(dimension, style) {
         this._dimension = dimension;
         this._style = style;
-        this._mxcell = new mxCell(
-            ''
-            // , C4Notation.createMxGeometry(this.dimension)
-            , new mxGeometry(0, 70, 160, 110)
-            , ""
-        );
     }
 
-    updateDimension() {
-        this._mxcell.getGeometry().setRect(this.dimension.x, this.dimension.y, this.dimension.width, this.dimension.height);
-    }
+    /*    updateDimension() {
+            this._mxcell.getGeometry().setRect(this.dimension.x, this.dimension.y, this.dimension.width, this.dimension.height);
+        }*/
 
     static createMxGeometry(dimension) {
         return new mxGeometry(dimension.x, dimension.y, dimension.width, dimension.height);
