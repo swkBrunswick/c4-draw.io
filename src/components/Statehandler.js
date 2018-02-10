@@ -1,4 +1,4 @@
-import {C4utils} from "../utilities/c4utils";
+import {C4utils} from "../utilities/C4utils";
 
 export class Statehandler extends mxVertexHandler {
     custom;

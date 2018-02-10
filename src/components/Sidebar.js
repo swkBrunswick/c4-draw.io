@@ -1,4 +1,4 @@
-import {C4utils} from "../utilities/c4utils";
+import {C4utils} from "../utilities/C4utils";
 import {C4Component} from "../notation/C4Component";
 import {C4Container} from "../notation/C4Container";
 
