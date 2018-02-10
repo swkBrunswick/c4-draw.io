@@ -1,9 +1,5 @@
 export class C4Component {
 
-    constructor(c4StateHandler) {
-        this.handler = c4StateHandler;
-    }
-
     create() {
         let c4Component = new mxCell(
             ''
@@ -21,7 +17,7 @@ export class C4Component {
         c4Component.setAttribute('c4Type', 'Component');
         c4Component.setAttribute('c4Technology', 'technology');
         c4Component.setAttribute('c4Description', 'Beschreibung');
-        c4Component.c4 = this;
+        c4Component.c4 = this; //-> new c4.handler();... new C4statehandler();
         return c4Component;
     }
 
