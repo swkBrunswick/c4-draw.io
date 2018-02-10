@@ -5,9 +5,9 @@
  *
  * https://raw.githubusercontent.com/tobiashochguertel/draw-io/master/C4-drawIO.xml
  */
-import {C4Component} from "./notation/component";
+import {C4Component} from "./notation/C4Component";
 import {C4utils} from "./utilities/c4utils";
-import {C4statehandler} from "./components/C4statehandler";
+import {C4statehandler} from "./components/Statehandler";
 
 Draw.loadPlugin(function (ui) {
 
@@ -45,7 +45,6 @@ Draw.loadPlugin(function (ui) {
         if (state !== null && (this.getSelectionCells().length === 1) && C4utils.isC4(state.cell) && !C4utils.isC4Relationship(state.cell)) {
             // if (state !== null && (this.getSelectionCells().length === 1) && C4utils.isC4(state.cell) && state.cell.c4.handler && !C4utils.isC4Relationship(state.cell)) {
             return new C4statehandler(state);
-            // return new state.cell.c4.handler(state);
         }
         return origGraphCreateHander.apply(this, arguments);
     };

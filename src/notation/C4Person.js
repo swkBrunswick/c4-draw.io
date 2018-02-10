@@ -1,9 +1,5 @@
 export class C4Person {
 
-    constructor(c4StateHandler) {
-        this.handler = c4StateHandler;
-    }
-
     create() {
         let group = new mxCell(
             ''

@@ -1,9 +1,5 @@
 export class C4DeploymentNode {
 
-    constructor(c4StateHandler) {
-        this.handler = c4StateHandler;
-    }
-
     create() {
         let c4DeploymentNode = new mxCell(
             ''

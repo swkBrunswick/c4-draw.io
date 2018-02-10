@@ -1,9 +1,5 @@
 export class C4Database {
 
-    constructor(c4StateHandler) {
-        this.handler = c4StateHandler;
-    }
-
     create() {
         let c4Database = new mxCell(
             ''
