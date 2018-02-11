@@ -5,6 +5,7 @@ import {C4Database} from "../notation/C4Database";
 import {C4DeploymentNode} from "../notation/C4DeploymentNode";
 import {C4ExecutionEnvironment} from "../notation/C4ExecutionEnvironment";
 import {C4Person} from "../notation/C4Person";
+import {C4SoftwareSystem} from "../notation/C4SoftwareSystem";
 
 export class Sidebar {
 
@@ -31,11 +32,12 @@ export class Sidebar {
         let c4Person = new C4Person();
         C4utils.registCodec(c4Person);
 
+        let c4SoftwareSystem = new C4SoftwareSystem();
+        C4utils.registCodec(c4SoftwareSystem);
 
         // Adds custom sidebar entry
         ui.sidebar.addPalette(sidebar_id, sidebar_title, true, function (content) {
-            // let verticies = [C4Person, C4SoftwareSystem, C4Container, C4Component, C4ExecutionEnvironment, C4DeploymentNode, C4Database];
-            let verticies = [c4Component, c4Container, c4Database, c4DeploymentNode, c4ExecutionEnvironment, c4Person];
+            let verticies = [c4Component, c4Container, c4Database, c4DeploymentNode, c4ExecutionEnvironment, c4Person, c4SoftwareSystem];
             for (let i in verticies) {
                 let c4notationMxCell = verticies[i].mxcell;
                 content.appendChild(
