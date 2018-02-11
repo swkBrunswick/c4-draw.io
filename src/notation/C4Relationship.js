@@ -17,10 +17,10 @@ export class C4Relationship extends C4Notation {
 
     init() {
         super.init();
-        this.mxcell.geometry.setTerminalPoint(new mxPoint(0, 0), true);
-        this.mxcell.geometry.setTerminalPoint(new mxPoint(160, 0), false);
-        this.mxcell.geometry.relative = true;
-        this.mxcell.edge = true;
+        this.geometry.setTerminalPoint(new mxPoint(0, 0), true);
+        this.geometry.setTerminalPoint(new mxPoint(160, 0), false);
+        this.geometry.relative = true;
+        this.edge = true;
     }
 
 }

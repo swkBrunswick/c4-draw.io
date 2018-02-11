@@ -17,9 +17,9 @@ export class C4ExecutionEnvironment extends C4Notation {
 
     init() {
         super.init();
-        this.mxcell.setAttribute('c4Name', 'hostname');
-        this.mxcell.setAttribute('c4OperationSystem', 'operationSystem');
-        this.mxcell.setAttribute('c4ScalingFactor', 'scalingFactor');
+        this.setAttribute('c4Name', 'hostname');
+        this.setAttribute('c4OperationSystem', 'operationSystem');
+        this.setAttribute('c4ScalingFactor', 'scalingFactor');
     }
 
 }

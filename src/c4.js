@@ -28,11 +28,14 @@ Draw.loadPlugin(function (ui) {
     // Add custom handler-code for the event of data-editor instanzing to provide a custom data-editor dialog.
     let origGraphCreateHander = ui.editor.graph.createHandler;
     ui.editor.graph.createHandler = function (state) {
-        if (state !== null && (this.getSelectionCells().length === 1) && C4utils.isC4(state.cell) && !C4utils.isC4Relationship(state.cell)) {
-            // if (state !== null && (this.getSelectionCells().length === 1) && C4utils.isC4(state.cell) && state.cell.c4.handler && !C4utils.isC4Relationship(state.cell)) {
-            return new Statehandler(ui, state);
+        if (!C4utils.isSingularSelection(this, state)) {
+            return origGraphCreateHander.apply(this, arguments);
         }
-        return origGraphCreateHander.apply(this, arguments);
+
+        if (C4utils.isC4Relationship(state.cell)) {
+            return origGraphCreateHander.apply(this, arguments);
+        }
+        return new Statehandler(ui, state);
     };
 
     let notationEditor = new NotationEditor();

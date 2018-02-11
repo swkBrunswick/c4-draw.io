@@ -1,3 +1,8 @@
+import {C4Relationship} from "../notation/C4Relationship";
+import {C4SoftwareSystem} from "../notation/C4SoftwareSystem";
+import {C4Notation} from "../notation/C4Notation";
+import {C4Person} from "../notation/C4Person";
+
 export class C4utils {
 
     static createMxGeometry(dimension) {
@@ -5,24 +10,25 @@ export class C4utils {
     }
 
     static isC4(cell) {
-        return (cell && cell.hasOwnProperty('c4') && (cell.c4 !== null));
+        C4utils.isC4Model(cell);
+        // return (cell && cell.hasOwnProperty('c4') && (cell.c4 !== null));
     }
 
     static isC4Model(cell) {
-        return (C4utils.isC4(cell) && cell && cell.hasOwnProperty('value') && (cell.value && cell.value.hasAttribute('c4Type')));
+        // return (C4utils.isC4(cell) && cell && cell.hasOwnProperty('value') && (cell.value && cell.value.hasAttribute('c4Type')));
+        return cell instanceof C4Notation;
     }
 
     static isC4Person(cell) {
-        return (C4utils.isC4(cell) && (cell.hasOwnProperty('value') && cell.value.length === 0) &&
-            cell.getChildCount() === 2 && cell.getChildAt(0).value.getAttribute('c4Type') === 'body');
+        return cell instanceof C4Person;
     }
 
     static isC4SoftwareSystem(cell) {
-        return (C4utils.isC4(cell) && cell.getAttribute('c4Type') === 'SoftwareSystem');
+        return cell instanceof C4SoftwareSystem;
     }
 
     static isC4Relationship(cell) {
-        return (C4utils.isC4(cell) && cell.getAttribute('c4Type') === 'Relationship');
+        return cell instanceof C4Relationship;
     }
 
     static createSettingsIcon() {
@@ -50,4 +56,7 @@ export class C4utils {
         mxCodecRegistry.register(codec);
     }
 
+    static isSingularSelection(graph, state) {
+        return state !== null && (graph.getSelectionCells().length === 1);
+    }
 }

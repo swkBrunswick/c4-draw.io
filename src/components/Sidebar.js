@@ -1,12 +1,12 @@
 import {C4utils} from "../utilities/C4utils";
 import {C4Component} from "../notation/C4Component";
-import {C4Container} from "../notation/C4Container";
-import {C4Database} from "../notation/C4Database";
-import {C4DeploymentNode} from "../notation/C4DeploymentNode";
-import {C4ExecutionEnvironment} from "../notation/C4ExecutionEnvironment";
-import {C4Person} from "../notation/C4Person";
-import {C4SoftwareSystem} from "../notation/C4SoftwareSystem";
 import {C4Relationship} from "../notation/C4Relationship";
+import {C4SoftwareSystem} from "../notation/C4SoftwareSystem";
+import {C4Person} from "../notation/C4Person";
+import {C4ExecutionEnvironment} from "../notation/C4ExecutionEnvironment";
+import {C4DeploymentNode} from "../notation/C4DeploymentNode";
+import {C4Database} from "../notation/C4Database";
+import {C4Container} from "../notation/C4Container";
 
 export class Sidebar {
 
@@ -43,7 +43,7 @@ export class Sidebar {
         ui.sidebar.addPalette(sidebar_id, sidebar_title, true, function (content) {
             let verticies = [c4Component, c4Container, c4Database, c4DeploymentNode, c4ExecutionEnvironment, c4Person, c4SoftwareSystem];
             for (let i in verticies) {
-                let c4notationMxCell = verticies[i].mxcell;
+                let c4notationMxCell = verticies[i];
                 content.appendChild(
                     ui.sidebar.createVertexTemplateFromCells(
                         [c4notationMxCell],
@@ -54,7 +54,7 @@ export class Sidebar {
                 );
             }
 
-            content.appendChild(ui.sidebar.createEdgeTemplateFromCells([c4Relationship.mxcell], 160, 0, 'C4 Relationship'));
+            content.appendChild(ui.sidebar.createEdgeTemplateFromCells([c4Relationship], 160, 0, 'C4 Relationship'));
         });
     }
 }

@@ -1,8 +1,7 @@
 import {C4utils} from "../utilities/C4utils";
 
-export class C4Notation {
+export class C4Notation extends mxCell {
     _dimension = {};
-    _mxcell;
     _label;
     _style;
 
@@ -26,14 +25,6 @@ export class C4Notation {
         this._style = value;
     }
 
-    get mxcell() {
-        return this._mxcell;
-    }
-
-    set mxcell(value) {
-        this._mxcell = value;
-    }
-
     get label() {
         return this._label;
     }
@@ -42,7 +33,19 @@ export class C4Notation {
         this._label = value;
     }
 
+    /**
+     * Parameters:
+     *
+     * value - Optional object that represents the cell value.
+     * dimension - Optional {x: 0, y: 0, width: 120, heigth: 120} that specifies the geometry.
+     * style - Optional formatted string that defines the style.
+     *          e.g. "rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#dae8fc;fontSize=14;font-weight:bold;fontColor=#ffffff;align=center;arcSize=7;strokeColor=#3c7fc0;"
+     *
+     * label - e.g. "<span>name</span><div>[Component:&nbsp;<span>technology</span><span>]</span></div><div><br></div><div>Beschreibung</div>"
+     *
+     **/
     constructor(dimension, style, label) {
+        super('', C4utils.createMxGeometry(dimension), style);
         this._dimension = dimension;
         this._style = style;
         this._label = label;
@@ -50,20 +53,19 @@ export class C4Notation {
     }
 
     init() {
-        this._mxcell = new mxCell('', C4utils.createMxGeometry(this.dimension), this.style);
-        this._mxcell.setVertex(true);
-        this._mxcell.setValue(mxUtils.createXmlDocument().createElement('object'));
-        this._mxcell.setAttribute('label', this._label);
-        this._mxcell.setAttribute('placeholders', '1');
-        this._mxcell.setAttribute('c4Name', 'name');
-        this._mxcell.setAttribute('c4Type', this.constructor.name);
-        this._mxcell.setAttribute('c4Technology', 'technology');
-        this._mxcell.setAttribute('c4Description', 'Beschreibung');
-        this._mxcell.c4 = true;
+        this.setVertex(true);
+        this.setValue(mxUtils.createXmlDocument().createElement('object'));
+        this.setAttribute('label', this._label);
+        this.setAttribute('placeholders', '1');
+        this.setAttribute('c4Name', 'name');
+        this.setAttribute('c4Type', this.constructor.name);
+        this.setAttribute('c4Technology', 'technology');
+        this.setAttribute('c4Description', 'Beschreibung');
+        this.c4 = true;
     }
 
     updateDimension() {
-        this._mxcell.getGeometry().setRect(this.dimension.x, this.dimension.y, this.dimension.width, this.dimension.height);
+        this.getGeometry().setRect(this.dimension.x, this.dimension.y, this.dimension.width, this.dimension.height);
     }
 
 }
