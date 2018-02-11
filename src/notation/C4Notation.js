@@ -56,7 +56,7 @@ export class C4Notation {
         this._mxcell.setAttribute('label', this._label);
         this._mxcell.setAttribute('placeholders', '1');
         this._mxcell.setAttribute('c4Name', 'name');
-        this._mxcell.setAttribute('c4Type', 'Component');
+        this._mxcell.setAttribute('c4Type', this.constructor.name);
         this._mxcell.setAttribute('c4Technology', 'technology');
         this._mxcell.setAttribute('c4Description', 'Beschreibung');
         this._mxcell.c4 = true;
