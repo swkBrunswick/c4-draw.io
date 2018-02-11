@@ -8,7 +8,7 @@ import {C4DeploymentNode} from "../notation/C4DeploymentNode";
 import {C4Database} from "../notation/C4Database";
 import {C4Container} from "../notation/C4Container";
 
-export class Sidebar {
+export class Palette {
 
     static create(ui) {
         let sidebar_id = 'c4';

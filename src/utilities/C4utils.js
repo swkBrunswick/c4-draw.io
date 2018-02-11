@@ -9,13 +9,19 @@ export class C4utils {
         return new mxGeometry(dimension.x, dimension.y, dimension.width, dimension.height);
     }
 
-    static isC4(cell) {
-        C4utils.isC4Model(cell);
-        // return (cell && cell.hasOwnProperty('c4') && (cell.c4 !== null));
+    static debugC4Type(cell) {
+        console.debug("cell", cell);
+        console.debug("cell instanceof C4Notation", cell instanceof C4Notation);
+        console.debug("cell instanceof C4Person", cell instanceof C4Person);
+        console.debug("cell instanceof C4Component", cell instanceof C4Component);
+        console.debug("cell instanceof C4SoftwareSystem", cell instanceof C4SoftwareSystem);
+        console.debug("cell instanceof C4Relationship", cell instanceof C4Relationship);
+        console.debug("cell instanceof C4ExecutionEnvironment", cell instanceof C4ExecutionEnvironment);
+        console.debug("cell instanceof C4Container", cell instanceof C4Container);
+        console.debug("cell instanceof C4Database", cell instanceof C4Database);
     }
 
-    static isC4Model(cell) {
-        // return (C4utils.isC4(cell) && cell && cell.hasOwnProperty('value') && (cell.value && cell.value.hasAttribute('c4Type')));
+    static isC4(cell) {
         return cell instanceof C4Notation;
     }
 

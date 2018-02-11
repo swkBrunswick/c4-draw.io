@@ -18,12 +18,12 @@
 import {C4utils} from "./utilities/C4utils";
 import {Statehandler} from "./components/Statehandler";
 import {NotationEditor} from "./components/NotationEditor";
-import {Sidebar} from "./components/Sidebar";
+import {Palette} from "./components/Sidebar";
 
 Draw.loadPlugin(function (ui) {
     document.querySelectorAll("body .geFooterContainer #geFooter img[title=Hide]")[0].click();
 
-    Sidebar.create(ui);
+    Palette.create(ui);
 
     // Add custom handler-code for the event of data-editor instanzing to provide a custom data-editor dialog.
     let origGraphCreateHander = ui.editor.graph.createHandler;

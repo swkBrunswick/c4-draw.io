@@ -2,10 +2,6 @@ import {C4utils} from "../utilities/C4utils";
 
 export class NotationEditor {
 
-    constructor() {
-
-    }
-
     create() {
         // START -> CUSTOM EDITOR MENU!
         let origEditDataDialog = EditDataDialog;
