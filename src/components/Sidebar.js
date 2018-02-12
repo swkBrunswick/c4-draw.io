@@ -6,6 +6,7 @@ import {C4ExecutionEnvironment} from "../notation/C4ExecutionEnvironment";
 import {C4Person} from "../notation/C4Person";
 import {C4SoftwareSystem} from "../notation/C4SoftwareSystem";
 import {C4Relationship} from "../notation/C4Relationship";
+import {C4Notation} from "../notation/C4Notation";
 
 export class Palette {
 
@@ -27,24 +28,30 @@ export class Palette {
         ui.sidebar.addPalette(sidebar_id, sidebar_title, true, function (content) {
             let verticies = [c4Component, c4Container, c4Database, c4DeploymentNode, c4ExecutionEnvironment, c4Person, c4SoftwareSystem];
             for (let i in verticies) {
-                let c4notationMxCell = verticies[i];
-
-                let mxCellCodec = mxCodecRegistry.getCodec(mxCell);
-                let copyOfMxCellCodec = mxUtils.clone(mxCellCodec);
-                copyOfMxCellCodec.template = c4notationMxCell;
-                mxCodecRegistry.register(copyOfMxCellCodec);
-                // mxCodecRegistry.addAlias("C4Component", 'mxCell');
+                let c4Notation = verticies[i];
+                Palette.registerCodec(c4Notation);
 
                 content.appendChild(
                     ui.sidebar.createVertexTemplateFromCells(
-                        [c4notationMxCell],
-                        c4notationMxCell.geometry.width,
-                        c4notationMxCell.geometry.height,
-                        c4notationMxCell.constructor.name
+                        [c4Notation],
+                        c4Notation.geometry.width,
+                        c4Notation.geometry.height,
+                        c4Notation.constructor.name
                     )
                 );
             }
             content.appendChild(ui.sidebar.createEdgeTemplateFromCells([c4Relationship], 160, 0, c4Relationship.constructor.name));
+            Palette.registerCodec(c4Relationship);
         });
+    }
+
+    static registerCodec(mxCellSubClass) {
+        if (mxCellSubClass instanceof C4Notation) {
+            let mxCellCodec = mxCodecRegistry.getCodec(mxCell);
+            let copyOfMxCellCodec = mxUtils.clone(mxCellCodec);
+            copyOfMxCellCodec.template = mxCellSubClass;
+            mxCodecRegistry.register(copyOfMxCellCodec);
+            // mxCodecRegistry.addAlias("C4Component", 'mxCell');
+        }
     }
 }
