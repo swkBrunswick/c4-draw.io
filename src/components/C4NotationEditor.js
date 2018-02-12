@@ -241,6 +241,9 @@ export class C4NotationEditor {
 
     addAttributeTextArea(attributeName, attributeValue) {
         this.addTextArea(this._count, attributeName, attributeValue);
+        if (attributeName === "c4Description") {
+            this._texts[this._count].style.minHeight = '120px';
+        }
         this._count++;
     }
 
@@ -283,7 +286,9 @@ export class C4NotationEditor {
     addTextArea(index, name, value) {
         this._names[index] = name;
         this._texts[index] = this._form.addTextarea(this._names[this._count] + ':', value, 2);
-        this._texts[index].style.width = '100%';
+        this._texts[index].style.width = '96%';
+        // this._texts[index].style.minHeight = '40px';
+        this._texts[index].style.padding = '8px';
         this.addRemoveButton(this._texts[index], name);
     }
 
