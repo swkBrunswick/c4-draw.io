@@ -12,7 +12,7 @@ export class C4ExecutionEnvironment extends C4Notation {
         let style = 'rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#ffffff;fontSize=14;font-weight:bold;fontColor=#ffffff;align=left;arcSize=3;strokeColor=#000000;verticalAlign=bottom;';
         let label = '<div style="text-align: left">hostname</div><div style="text-align: left">[operationSystem]</div><div style="text-align: right">scalingFactor</div>';
 
-        super(dimension, style, label);
+        super('', dimension, style, label);
     }
 
     init() {

@@ -1,25 +1,17 @@
-import {C4utils} from "../utilities/C4utils";
+import {C4Notation} from "../notation/C4Notation";
 
-export class NotationEditor {
-
+export class LegacyNotationEditor {
     create() {
         // START -> CUSTOM EDITOR MENU!
         let origEditDataDialog = EditDataDialog;
         EditDataDialog = function (ui, cell) {
-            if (!C4utils.isC4(cell)) {
+            let isC4Notation = cell instanceof C4Notation;
+            if (!isC4Notation) {
                 return origEditDataDialog.apply(this, arguments);
             }
-            let div = document.createElement('div');
+            let div = LegacyNotationEditor.createPreviewWindow();
             let graph = ui.editor ? ui.editor.graph : ui.graph;
-            div.style.height = '100%'; //'310px';
-            div.style.overflow = 'auto';
-            let value = graph.getModel().getValue(cell);
-            // Converts the value to an XML node
-            if (!mxUtils.isNode(value)) {
-                let obj = mxUtils.createXmlDocument().createElement('object');
-                obj.setAttribute('label', value || '');
-                value = obj;
-            }
+            let value = LegacyNotationEditor.getConvertedValueAsXmlNode(graph, cell);
             // Creates the dialog contents
             let form = new mxForm('properties');
             form.table.style.width = '100%';
@@ -216,7 +208,7 @@ export class NotationEditor {
             buttons.style.marginTop = '18px';
             buttons.style.textAlign = 'right';
 
-            if (graph.getModel().isVertex(cell) || graph.getModel().isEdge(cell)) {
+            if (graph.getModel().isCellAVertex(cell) || graph.getModel().isEdge(cell)) {
                 let replace = document.createElement('span');
                 replace.style.marginRight = '10px';
                 let input = document.createElement('input');
@@ -268,4 +260,23 @@ export class NotationEditor {
         }
         ///// END <- CUSTOM EDITOR FORM
     }
+
+    // Converts the value to an XML node
+    static getConvertedValueAsXmlNode(value) {
+        if (!mxUtils.isNode(value)) {
+            let doc = mxUtils.createXmlDocument();
+            let obj = doc.createElement('object');
+            obj.setAttribute('label', value || '');
+            value = obj;
+        }
+        return value
+    }
+
+    static createPreviewWindow() {
+        let div = document.createElement('div');
+        div.style.height = '100%'; //'310px';
+        div.style.overflow = 'auto';
+        return div;
+    }
+
 }

@@ -12,6 +12,6 @@ export class C4Component extends C4Notation {
         let style = 'rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#dae8fc;fontSize=14;font-weight:bold;fontColor=#ffffff;align=center;arcSize=7;strokeColor=#3c7fc0;';
         let label = '<span>name</span><div>[Component:&nbsp;<span>technology</span><span>]</span></div><div><br></div><div>Beschreibung</div>';
 
-        super(dimension, style, label);
+        super('', dimension, style, label);
     }
 }

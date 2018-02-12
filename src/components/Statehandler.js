@@ -1,4 +1,5 @@
 import {C4utils} from "../utilities/C4utils";
+import {C4Person} from "../notation/C4Person";
 
 export class Statehandler extends mxVertexHandler {
     custom;
@@ -21,7 +22,7 @@ export class Statehandler extends mxVertexHandler {
         );
         mxEvent.addListener(img, 'click',
             mxUtils.bind(this, function (evt) {
-                let isC4Person = C4utils.isC4Person(this.state.cell);
+                let isC4Person = this.state.cell instanceof C4Person;
                 if (isC4Person) {
                     let cell = this.state.cell.getChildAt(0);
                     if (cell !== null) {

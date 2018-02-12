@@ -12,13 +12,15 @@
  * - https://github.com/jgraph/drawio/tree/master/src/main/webapp/connect/common/js
  * - https://jgraph.github.io/mxgraph/docs/tutorial.html
  *
+ * - https://webapps.stackexchange.com/questions/82354/add-keyboard-shortcuts-to-draw-io-to-insert-a-given-element
+ * -- https://plus.google.com/+DrawIo1/posts/CXEvmL16mjp
+ * -- https://de.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange
+ *
  * - https://about.draw.io/features/examples/
  * - https://support.draw.io/display/DOB/2016/04/28/draw.io+API
  */
-import {C4utils} from "./utilities/C4utils";
-import {Statehandler} from "./components/Statehandler";
-import {NotationEditor} from "./components/NotationEditor";
 import {Palette} from "./components/Sidebar";
+import {C4ModelMenu} from "./components/C4ModelMenu";
 
 Draw.loadPlugin(function (ui) {
     document.querySelectorAll("body .geFooterContainer #geFooter img[title=Hide]")[0].click();
@@ -26,19 +28,18 @@ Draw.loadPlugin(function (ui) {
     Palette.create(ui);
 
     // Add custom handler-code for the event of data-editor instanzing to provide a custom data-editor dialog.
-    let origGraphCreateHander = ui.editor.graph.createHandler;
-    ui.editor.graph.createHandler = function (state) {
-        if (!C4utils.isSingularSelection(this, state)) {
-            return origGraphCreateHander.apply(this, arguments);
-        }
+    /*    let origGraphCreateHander = ui.editor.graph.createHandler;
+        ui.editor.graph.createHandler = function (state) {
+            if (!C4utils.isSingularSelection(this, state)) {
+                return origGraphCreateHander.apply(this, arguments);
+            }
 
-        if (C4utils.isC4Relationship(state.cell)) {
-            return origGraphCreateHander.apply(this, arguments);
-        }
-        return new Statehandler(ui, state);
-    };
+            if (C4utils.isC4Relationship(state.cell)) {
+                return origGraphCreateHander.apply(this, arguments);
+            }
+            return new Statehandler(ui, state);
+        };*/
 
-    let notationEditor = new NotationEditor();
-    notationEditor.create();
+    let c4ModelMenu = new C4ModelMenu(ui);
 
 });

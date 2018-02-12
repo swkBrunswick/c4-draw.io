@@ -13,7 +13,7 @@ export class C4Person extends C4Notation {
         let style = 'group;rounded=0;labelBackgroundColor=none;fillColor=none;fontColor=#ffffff;align=center;html=1;';
         let label = 'name<div>[Person]</div><div><br></div><div>Beschreibung</div>';
 
-        super(dimension, style, label);
+        super('', dimension, style, label);
     }
 
     init() {
