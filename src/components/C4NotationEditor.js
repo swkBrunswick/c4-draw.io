@@ -25,7 +25,9 @@ export class C4NotationEditor {
 
         this._root = document.createElement('div');
         this._graph = this._ui.editor.graph;
+        // console.debug("Cell.value", this._graph.getModel().getValue(this._cell));
         this._value = C4NotationEditor.getValueConvertedAsXmlNode(this._graph.getModel().getValue(this._cell));
+        // console.debug("Cell.value as XML Node", this._value);
         this.createDialogContents();
         this.createTextAreasForCellAttributes();
         this.createButtonAddProperty();
@@ -175,7 +177,11 @@ export class C4NotationEditor {
         addPropertyButton.style.width = '144px';
         newProp.appendChild(addPropertyButton);
 
+        /**
+         * updateAddBtn is fired when a keyUp o. keyDown event happens in the name field for an new property.
+         */
         function updateAddBtn() {
+            console.debug("updateAddBtn fired..");
             if (nameInput.value.length > 0) {
                 addPropertyButton.removeAttribute('disabled');
             }
@@ -197,7 +203,7 @@ export class C4NotationEditor {
     createApplyButton() {
         this._applyButton = this.addButton('apply', function () {
             try {
-                this._ui.hideDialog.apply(ui, arguments);
+                this._ui.hideDialog.apply(this._ui, arguments);
                 // Clones and updates the value
                 this._value = this._value.cloneNode(true);
                 let removeLabel = false;
@@ -216,7 +222,19 @@ export class C4NotationEditor {
                     this._value.removeAttribute('label');
                 }
                 // Updates the value of the cell (undoable)
-                this._graph.getModel().setValue(this._cell, this._value);
+                // this._graph.getModel().setValue(this._cell, this._value);
+
+                // this._value = C4NotationEditor.getValueConvertedAsXmlNode(this._graph.getModel().getValue(this._cell));
+
+                let c4value = "";
+                for (let i = 0; i < this._names.length; i++) {
+                    if (!(this._texts[i] == null)) {
+                        console.debug("Attribute: ", this._names[i], this._texts[i].value);
+                        c4value = this._names[i] + ": " + this._texts[i].value;
+                    }
+                }
+                this._graph.getModel().setValue(this._cell,);
+
             }
             catch (e) {
                 mxUtils.alert(e);
