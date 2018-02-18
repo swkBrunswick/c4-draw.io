@@ -1,6 +1,7 @@
 import {C4Notation} from "./C4Notation";
 import {C4utils} from "../utilities/C4utils";
-import {C4NotationStyleAbstraction} from "../components/C4NotationStyleAbstraction";
+import {C4GroupStyle} from "../components/C4GroupStyle";
+import {C4PersonStyle} from "./C4PersonStyle";
 
 export class C4Person extends C4Notation {
 
@@ -11,14 +12,10 @@ export class C4Person extends C4Notation {
             width: 160,
             height: 180
         };
-        // let style = 'group;rounded=0;labelBackgroundColor=none;fillColor=none;fontColor=#ffffff;align=center;html=1;';
         let label = 'name<div>[Person]</div><div><br></div><div>Beschreibung</div>';
 
-        let c4Style = new C4NotationStyleAbstraction();
-        c4Style.fillColor = "#438dd5";
-        let style = c4Style.toString();
-
-        super('', dimension, style, label);
+        let c4Style = new C4GroupStyle();
+        super('', dimension, c4Style.toString(), label);
     }
 
     init() {
@@ -27,12 +24,13 @@ export class C4Person extends C4Notation {
         this.setAttribute('c4Type', this.constructor.name);
         this.c4 = true;
 
+        let c4Style = new C4PersonStyle();
         let body = new mxCell('', C4utils.createMxGeometry({
             x: 0,
             y: 70,
             width: 160,
             height: 110
-        }), "rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#08427b;fontColor=#ffffff;align=center;arcSize=33;strokeColor=#3c7fc0;");
+        }), c4Style.toString());
 
         body.setParent(this);
         body.setVertex(true);
