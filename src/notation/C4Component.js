@@ -1,5 +1,5 @@
 import {C4Notation} from "./C4Notation";
-import {C4AbstractionStyle} from "./C4AbstractionStyle";
+import {C4ComponentStyle} from "./C4ComponentStyle";
 
 export class C4Component extends C4Notation {
 
@@ -11,8 +11,7 @@ export class C4Component extends C4Notation {
             height: 110
         };
         let label = '<span>name</span><div>[Component:&nbsp;<span>technology</span><span>]</span></div><div><br></div><div>Beschreibung</div>';
-        let c4Style = new C4AbstractionStyle();
-        c4Style.fillColor = "#438dd5";
+        let c4Style = new C4ComponentStyle();
         let style = c4Style.toString();
         super('', dimension, style, label);
     }
