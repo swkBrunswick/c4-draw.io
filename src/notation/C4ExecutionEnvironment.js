@@ -1,4 +1,5 @@
 import {C4Notation} from "./C4Notation";
+import {C4InfrastructureStyle} from "../components/C4InfrastructureStyle";
 
 export class C4ExecutionEnvironment extends C4Notation {
 
@@ -9,8 +10,10 @@ export class C4ExecutionEnvironment extends C4Notation {
             width: 240,
             height: 230
         };
-        let style = 'rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#ffffff;fontSize=14;font-weight:bold;fontColor=#ffffff;align=left;arcSize=3;strokeColor=#000000;verticalAlign=bottom;';
         let label = '<div style="text-align: left">hostname</div><div style="text-align: left">[operationSystem]</div><div style="text-align: right">scalingFactor</div>';
+
+        let c4Style = new C4InfrastructureStyle();
+        let style = c4Style.toString();
 
         super('', dimension, style, label);
     }
