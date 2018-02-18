@@ -221,20 +221,16 @@ export class C4NotationEditor {
                 if (removeLabel) {
                     this._value.removeAttribute('label');
                 }
-                // Updates the value of the cell (undoable)
-                // this._graph.getModel().setValue(this._cell, this._value);
-
-                // this._value = C4NotationEditor.getValueConvertedAsXmlNode(this._graph.getModel().getValue(this._cell));
-
+                /*
                 let c4value = "";
                 for (let i = 0; i < this._names.length; i++) {
                     if (!(this._texts[i] == null)) {
                         console.debug("Attribute: ", this._names[i], this._texts[i].value);
                         c4value = this._names[i] + ": " + this._texts[i].value;
                     }
-                }
+                }*/
+                // Updates the value of the cell (undoable)
                 this._graph.getModel().setValue(this._cell, this._value);
-
             }
             catch (e) {
                 mxUtils.alert(e);
