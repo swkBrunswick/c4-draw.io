@@ -10,7 +10,7 @@ export class C4SoftwareSystem extends C4Notation {
             width: 160,
             height: 110
         };
-        let label = 'name<div>[Software System]</div><div><br></div><div>Beschreibung</div>';
+        let label = '%c4Name%<div>[%c4Type%]</div><div><br></div><div>%c4Description%</div>';
         let c4Style = new C4SoftwareSystemStyle();
         super('', dimension, c4Style.toString(), label);
     }

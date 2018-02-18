@@ -233,7 +233,7 @@ export class C4NotationEditor {
                         c4value = this._names[i] + ": " + this._texts[i].value;
                     }
                 }
-                this._graph.getModel().setValue(this._cell,);
+                this._graph.getModel().setValue(this._cell, this._value);
 
             }
             catch (e) {

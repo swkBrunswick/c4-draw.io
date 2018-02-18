@@ -12,4 +12,5 @@ export class C4AbstractionStyle extends DrawIoStyle {
     align = "center";
     arcSize = 7;
     strokeColor = "#3c7fc0";
+    aspect = "fixed";
 }

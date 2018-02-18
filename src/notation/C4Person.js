@@ -13,8 +13,7 @@ export class C4Person extends C4Notation {
             width: 160,
             height: 180
         };
-        let label = 'name<div>[Person]</div><div><br></div><div>Beschreibung</div>';
-
+        let label = '%c4Name%<div>[%c4Type%]</div><div><br></div><div>%c4Description%</div>';
         let c4Style = new C4GroupStyle();
         super('', dimension, c4Style.toString(), label);
     }

@@ -75,7 +75,7 @@ export class C4Notation extends mxCell {
         this.setAttribute('label', this._label);
         this.setAttribute('placeholders', '1');
         this.setAttribute('c4Name', 'name');
-        this.setAttribute('c4Type', this.constructor.name);
+        this.setAttribute('c4Type', this.constructor.name.substr(2));
         this.setAttribute('c4Technology', 'technology');
         this.setAttribute('c4Description', 'Beschreibung');
         this.c4 = true;

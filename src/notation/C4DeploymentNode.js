@@ -10,8 +10,7 @@ export class C4DeploymentNode extends C4Notation {
             width: 240,
             height: 230
         };
-        let label = '<div style="text-align: left">hostname</div><div style="text-align: left">[operationSystem]</div><div style="text-align: right">scalingFactor</div>';
-
+        let label = '<div style="text-align: left">%c4Name%</div><div style="text-align: left">[%c4OperationSystem%]</div><div style="text-align: right">%c4ScalingFactor%</div>';
         let c4Style = new C4SupplementaryStyle();
         super('', dimension, c4Style.toString(), label);
     }

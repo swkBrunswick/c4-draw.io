@@ -18,6 +18,12 @@
  *
  * - https://about.draw.io/features/examples/
  * - https://support.draw.io/display/DOB/2016/04/28/draw.io+API
+ *
+ * - Integration of Github / .. and other saving locations.
+ * -- https://support.draw.io/display/DO/2015/09/21/Simple+draw.io+embedding+walk-through
+ *
+ * - Usage of Placeholders:
+ * -- https://desk.draw.io/support/solutions/articles/16000051979
  */
 import {Palette} from "./components/Sidebar";
 import {C4ModelMenu} from "./components/C4ModelMenu";
@@ -26,6 +32,13 @@ Draw.loadPlugin(function (ui) {
     document.querySelectorAll("body .geFooterContainer #geFooter img[title=Hide]")[0].click();
 
     Palette.create(ui);
+
+    /*    let graph = ui.editor.graph;
+        graph.addListener(mxEvent.LABEL_CHANGED, function (sender, evt) {
+            let cell = evt.getProperty('cell');
+            console.debug("send & event: ", sender, evt);
+            console.debug("cell: ", cell);
+        });*/
 
     // Add custom handler-code for the event of data-editor instanzing to provide a custom data-editor dialog.
     /*    let origGraphCreateHander = ui.editor.graph.createHandler;

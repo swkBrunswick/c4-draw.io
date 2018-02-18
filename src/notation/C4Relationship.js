@@ -10,8 +10,7 @@ export class C4Relationship extends C4Notation {
             width: 160,
             height: 0
         };
-        let label = '<div style="text-align: left"><div style="text-align: center"><b>Beschreibung</b></div><div style="text-align: center">[technology]</div></div>';
-
+        let label = '<div style="text-align: left"><div style="text-align: center"><b>%c4Description%</b></div><div style="text-align: center">[%c4Technology%]</div></div>';
         let c4Style = new C4RelationshipStyle();
         super('', dimension, c4Style.toString(), label);
     }
