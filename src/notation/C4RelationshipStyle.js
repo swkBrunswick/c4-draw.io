@@ -14,6 +14,6 @@ export class C4RelationshipStyle extends C4AbstractionStyle {
     fontColor = "#707070";
     jumpStyle = "none";
     dashed = 1;
-    aspect = "auto";
+    aspect = "none";
 
 }
