@@ -1,6 +1,6 @@
 import {DrawIoStyle} from "./DrawIoStyle";
 
-export class C4Style extends DrawIoStyle {
+export class C4NotationStyleAbstraction extends DrawIoStyle {
     rounded = 1;
     whiteSpace = "wrap";
     html = 1;

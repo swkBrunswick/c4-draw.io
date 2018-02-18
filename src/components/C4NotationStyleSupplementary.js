@@ -1,6 +1,6 @@
-import {C4Style} from "./C4Style";
+import {C4NotationStyleAbstraction} from "./C4NotationStyleAbstraction";
 
-export class C4InfrastructureStyle extends C4Style {
+export class C4NotationStyleSupplementary extends C4NotationStyleAbstraction {
     fillColor = "#ffffff";
     fontColor = "#000000";
     align = "left";

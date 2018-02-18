@@ -1,5 +1,5 @@
 import {C4Notation} from "./C4Notation";
-import {C4InfrastructureStyle} from "../components/C4InfrastructureStyle";
+import {C4NotationStyleSupplementary} from "../components/C4NotationStyleSupplementary";
 
 export class C4DeploymentNode extends C4Notation {
 
@@ -12,7 +12,7 @@ export class C4DeploymentNode extends C4Notation {
         };
         let label = '<div style="text-align: left">hostname</div><div style="text-align: left">[operationSystem]</div><div style="text-align: right">scalingFactor</div>';
 
-        let c4Style = new C4InfrastructureStyle();
+        let c4Style = new C4NotationStyleSupplementary();
         let style = c4Style.toString();
 
         super('', dimension, style, label);

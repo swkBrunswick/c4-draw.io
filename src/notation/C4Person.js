@@ -1,5 +1,6 @@
 import {C4Notation} from "./C4Notation";
 import {C4utils} from "../utilities/C4utils";
+import {C4NotationStyleAbstraction} from "../components/C4NotationStyleAbstraction";
 
 export class C4Person extends C4Notation {
 
@@ -10,8 +11,12 @@ export class C4Person extends C4Notation {
             width: 160,
             height: 180
         };
-        let style = 'group;rounded=0;labelBackgroundColor=none;fillColor=none;fontColor=#ffffff;align=center;html=1;';
+        // let style = 'group;rounded=0;labelBackgroundColor=none;fillColor=none;fontColor=#ffffff;align=center;html=1;';
         let label = 'name<div>[Person]</div><div><br></div><div>Beschreibung</div>';
+
+        let c4Style = new C4NotationStyleAbstraction();
+        c4Style.fillColor = "#438dd5";
+        let style = c4Style.toString();
 
         super('', dimension, style, label);
     }
