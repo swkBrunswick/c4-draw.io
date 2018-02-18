@@ -1,5 +1,5 @@
 import {C4Notation} from "./C4Notation";
-import {C4AbstractionStyle} from "./C4AbstractionStyle";
+import {C4DatabaseStyle} from "./C4DatabaseStyle";
 
 export class C4Database extends C4Notation {
 
@@ -12,14 +12,8 @@ export class C4Database extends C4Notation {
         };
         let label = '<span>Database</span><div>[Container:&nbsp;technology]</div><div><br></div><div>Beschreibung</div>';
 
-        let c4Style = new C4AbstractionStyle();
-        c4Style.fillColor = "#438dd5";
-        c4Style.shape = "cylinder";
-        c4Style.boundedLbl = 1;
-        c4Style.rounded = 0;
-        let style = c4Style.toString();
-
-        super('', dimension, style, label);
+        let c4Style = new C4DatabaseStyle();
+        super('', dimension, c4Style.toString(), label);
     }
 
 }
