@@ -17,7 +17,6 @@ export class C4Relationship extends C4Notation {
 
     init() {
         super.init();
-        console.debug("C4Relationship.init()");
         this.geometry.setTerminalPoint(new mxPoint(0, 0), true);
         this.geometry.setTerminalPoint(new mxPoint(160, 0), false);
         this.geometry.relative = true;
