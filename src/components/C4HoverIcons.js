@@ -24,7 +24,8 @@ export class C4HoverIcons extends HoverIcons {
                 this.graph.setSelectionCell(tmp.cell);
                 this.reset();
             } else if (state != null) {
-                let cells = this.graph.connectVertex(state.cell, dir, this.graph.defaultEdgeLength, evt);
+                let length = this.graph.defaultEdgeLength;
+                let cells = this.graph.connectVertex(state.cell, dir, length + 50, evt);
 
                 let relation = cells[0];
                 let relationGeometry = relation.getGeometry();
