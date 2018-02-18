@@ -2,10 +2,8 @@ import {C4AbstractionStyle} from "./C4AbstractionStyle";
 
 export class C4RelationshipStyle extends C4AbstractionStyle {
 
-    edgeStyle = "none";
+    edgeStyle = "orthogonalEdgeStyle";
     rounded = 0;
-    entryX = 0;
-    entryY = 0.5;
     jettySize = "auto";
     orthogonalLoop = 1;
     strokeColor = "#A8A8A8";

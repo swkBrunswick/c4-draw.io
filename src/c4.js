@@ -27,11 +27,26 @@
  */
 import {Palette} from "./components/Sidebar";
 import {C4ModelMenu} from "./components/C4ModelMenu";
+import {C4HoverIcons} from "./components/C4HoverIcons";
 
 Draw.loadPlugin(function (ui) {
     document.querySelectorAll("body .geFooterContainer #geFooter img[title=Hide]")[0].click();
-
     Palette.create(ui);
+    ui.hoverIcons = new C4HoverIcons(ui.editor.graph);
+
+    // let template = ui.editor.templates['task'];
+    // let clone = ui.editor.graph.model.cloneCell(template);
+
+    /*    let userObject = new Object();
+        let parent = ui.editor.graph.getDefaultParent();
+        let model = ui.editor.graph.model;
+        model.beginUpdate();
+        try {
+            ui.editor.graph.insertVertex(parent, null, userObject, 20, 20, 80, 30);
+        }
+        finally {
+            model.endUpdate();
+        }*/
 
     /*    let graph = ui.editor.graph;
         graph.addListener(mxEvent.LABEL_CHANGED, function (sender, evt) {
