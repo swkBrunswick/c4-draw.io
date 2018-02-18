@@ -1,4 +1,5 @@
 import {C4Notation} from "./C4Notation";
+import {C4RelationshipStyle} from "./C4RelationshipStyle";
 
 export class C4Relationship extends C4Notation {
 
@@ -9,10 +10,10 @@ export class C4Relationship extends C4Notation {
             width: 160,
             height: 0
         };
-        let style = 'edgeStyle=none;rounded=0;html=1;entryX=0;entryY=0.5;jettySize=auto;orthogonalLoop=1;strokeColor=#A8A8A8;strokeWidth=2;fontSize=12;font-weight:bold;fontColor=#707070;jumpStyle=none;dashed=1;';
         let label = '<div style="text-align: left"><div style="text-align: center"><b>Beschreibung</b></div><div style="text-align: center">[technology]</div></div>';
 
-        super('', dimension, style, label);
+        let c4Style = new C4RelationshipStyle();
+        super('', dimension, c4Style.toString(), label);
     }
 
     init() {
