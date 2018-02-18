@@ -1,4 +1,4 @@
-import {DrawIoStyle} from "../notation/DrawIoStyle";
+import {DrawIoStyle} from "./DrawIoStyle";
 
 export class C4GroupStyle extends DrawIoStyle {
     rounded = 0;
