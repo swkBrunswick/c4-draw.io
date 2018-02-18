@@ -7,5 +7,5 @@ export class C4SupplementaryStyle extends C4AbstractionStyle {
     arcSize = 3;
     strokeColor = "#000000";
     verticalAlign = "bottom";
-    aspect = "none";
+
 }

@@ -5,4 +5,6 @@ export class C4DatabaseStyle extends C4AbstractionStyle {
     shape = "cylinder";
     boundedLbl = 1;
     rounded = 0;
+    aspect = "fixed";
+
 }
