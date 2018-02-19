@@ -24,6 +24,14 @@
  *
  * - Usage of Placeholders:
  * -- https://desk.draw.io/support/solutions/articles/16000051979
+ *
+ *
+ * - https://www.salesforce.com/video/1770866/
+ * -- Co-founder David Benson at @Dreamforce 2017 in San Francisco about building the http://draw.io  LiveApp for @quip https://www.salesforce.com/video/1770866/  - No browser tabs, no external data, with offline sync and real time collaboration. Thanks to Quip for this great platform!
+ *
+ * - https://about.draw.io/floating-and-fixed-connections-in-draw-io/
+ *
+ * - https://desk.draw.io/support/solutions/articles/16000052833-how-to-connect-shapes-
  */
 import {Palette} from "./components/Sidebar";
 import {C4ModelMenu} from "./components/C4ModelMenu";
