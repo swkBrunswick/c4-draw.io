@@ -14,7 +14,6 @@ import {C4RelationshipStyle} from "../notation/C4RelationshipStyle";
  */
 export class C4HoverIcons extends HoverIcons {
 
-
     constructor(graph) {
         super(graph);
     }
