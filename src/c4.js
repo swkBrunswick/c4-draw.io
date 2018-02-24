@@ -32,6 +32,22 @@
  * - https://about.draw.io/floating-and-fixed-connections-in-draw-io/
  *
  * - https://desk.draw.io/support/solutions/articles/16000052833-how-to-connect-shapes-
+ *
+ * - ALT+SHIFT+CURSOR
+ * -- EditorUi.js - EditorUi.prototype.createKeyHandler
+ *
+ *    var directions = {37: mxConstants.DIRECTION_WEST, 38: mxConstants.DIRECTION_NORTH,
+ *			39: mxConstants.DIRECTION_EAST, 40: mxConstants.DIRECTION_SOUTH};
+ *
+ * - WEBDAV:
+ * -- https://support.draw.io/pages/viewpage.action?pageId=7504018
+ * -- http://documentation.mamp.info/en/MAMP-PRO-Mac/Settings/Hosts/Apache/
+ *
+ * - GITHUB:
+ * -- https://github.com/jgraph/drawio-github/blob/master/nanocms.js
+ *
+ * - Embedding Walk Through:
+ * -- https://support.draw.io/display/DO/2015/09/21/Simple+draw.io+embedding+walk-through
  */
 import {Palette} from "./components/Sidebar";
 import {C4ModelMenu} from "./components/C4ModelMenu";
@@ -41,6 +57,30 @@ Draw.loadPlugin(function (ui) {
     document.querySelectorAll("body .geFooterContainer #geFooter img[title=Hide]")[0].click();
     Palette.create(ui);
     ui.hoverIcons = new C4HoverIcons(ui.editor.graph);
+
+    console.debug("ui", ui);
+    console.debug("this", this);
+
+    fetch("https://de-dus-nb-toh.de:8890/dist/SoftwareSystem_InternetBankingSystem.json", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        mode: "cors",
+        referrer: 'no-referrer', // *client
+    }).then(function (response) {
+        console.debug("response", response);
+        let text = response.text();
+        console.debug("response.text()", text);
+        // console.debug("response.json()", response.json());
+        // response.status;     //=> number 100–599
+        // response.statusText; //=> String
+        // response.headers;    //=> Headers
+        // response.url;        //=> String
+        return text
+    }, function (error) {
+        console.error("error", error) //=> String
+    });
 
     // let template = ui.editor.templates['task'];
     // let clone = ui.editor.graph.model.cloneCell(template);
