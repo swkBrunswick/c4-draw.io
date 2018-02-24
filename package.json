@@ -25,7 +25,9 @@
     "gulp": "3.9.1",
     "gulp-babel": "7.0.1",
     "gulp-concat": "2.6.1",
-    "gulp-sourcemaps": "2.6.4"
+    "gulp-sourcemaps": "2.6.4",
+    "jsdoc": "3.5.5",
+    "jsdoc-template": "1.2.0"
   },
   "bablerc": {
     "presets": [
@@ -54,9 +56,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "transpile2": "browserify src/c4.js -o dist/bundle.js -t [ babelify --presets [ env ] ]",
-    "transpile3": "browserify -d src/c4.js -o dist/bundle.js -t [ babelify --presets env --plugins transform-class-properties ]",
-    "transpile4": "browserify -d src/c4.js -o dist/bundle.js -t [ babelify --presets env ]"
+    "generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose",
+    "transpile3": "browserify -d src/c4.js -o dist/bundle.js -t [ babelify --presets env --plugins transform-class-properties ]"
   },
   "repository": {
     "type": "git",

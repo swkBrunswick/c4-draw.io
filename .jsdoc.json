@@ -1,0 +1,34 @@
+{
+  "tags": {
+    "allowUnknownTags": true,
+    "dictionaries": [
+      "jsdoc"
+    ]
+  },
+  "source": {
+    "include": [
+      "src",
+      "package.json",
+      "README.md"
+    ],
+    "includePattern": ".js$",
+    "excludePattern": "(node_modules/|docs)"
+  },
+  "plugins": [
+    "plugins/markdown"
+  ],
+  "templates": {
+    "referenceTitle": "c4 plugin for draw.io",
+    "disableSort": false
+  },
+  "opts": {
+    "destination": "./dist/docs/",
+    "tutorials": "./jsdoc-tutorials",
+    "package": "./package.json",
+    "readme": "./README.md",
+    "encoding": "utf8",
+    "private": true,
+    "recurse": true,
+    "template": "jsdoc-templates/jsdoc-template"
+  }
+}
